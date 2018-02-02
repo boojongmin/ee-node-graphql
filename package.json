@@ -1,0 +1,25 @@
+{
+  "name": "lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "run-script": "node --nolazy --debug-brk=9229 index.js",
+    "deploy": "aws lambda update-function-code --function-name lambda-loginterview-ee --zip-file fileb://./lambda.zip",
+    "predeploy": "zip -r lambda.zip ./ -x '*.zip' -x '.git' -x '.vscode/*'",
+    "test": "mocha --recursive",
+    "test-debug": "mocha --debug-brk"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.0.0"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-graphql": "^0.6.11",
+    "graphql": "^0.12.3"
+  }
+}
